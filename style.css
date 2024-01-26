@@ -1,0 +1,15 @@
+body{
+    padding: 20px;
+    padding-left: 300px;
+    float:left;
+}
+
+.moves, .cube{
+    display: inline-block;
+    float: left;
+}
+
+.cube{
+    margin-left: 50px;
+    margin-top: 20px;
+}
