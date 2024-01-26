@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <script src="cube.js"></script>
+    <script src="scramble.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="moves">
+        <button type="button" onclick="R()">R</button>
+        <button type="button" onclick="Rp()">R'</button>
+        <button type="button" onclick="R2()">R2</button>
+        <p></p>
+        <button type="button" onclick="L()">L</button>
+        <button type="button" onclick="Lp()">L'</button>
+        <button type="button" onclick="L2()">L2</button>
+        <p></p>
+        <button type="button" onclick="U()">U</button>
+        <button type="button" onclick="Up()">U'</button>
+        <button type="button" onclick="U2()">U2</button>
+        <p></p>
+        <button type="button" onclick="D()">D</button>
+        <button type="button" onclick="Dp()">D'</button>
+        <button type="button" onclick="D2()">D2</button>
+        <p></p>
+        <button type="button" onclick="F()">F</button>
+        <button type="button" onclick="Fp()">F'</button>
+        <button type="button" onclick="F2()">F2</button>
+        <p></p>
+        <button type="button" onclick="B()">B</button>
+        <button type="button" onclick="Bp()">B'</button>
+        <button type="button" onclick="B2()">B2</button>
+        <p></p>
+        <button type="button" onclick="reset()">reset</button>
+    </div>
+    <div class="cube">
+        <table>
+            <tr>
+                <td></td>
+                <td id="up">000<br>000<br>000</td>
+            </tr>
+            <tr>
+                <td id="left">111<br>111<br>111</td>
+                <td id="front">222<br>222<br>222</td>
+                <td id="right">333<br>333<br>333</td>
+                <td id="back">444<br>444<br>444</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="down">555<br>555<br>555</td>
+            </tr>
+        </table>
+    </div>
+    <div class="scramble">
+        <input type="text" id="scramble_notation">
+        <button type="button" onclick="scramble()">submit</button>
+
+    </div>    
+    
+</body>
+</html>
