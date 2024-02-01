@@ -75,5 +75,90 @@ function scramble(){
 }
 
 function combination(){
+    let moves = [["R", "R'", "R2"], ["L", "L'", "L2"],
+                 ["U", "U'", "U2"], ["D", "D'", "D2"],
+                 ["B", "B'", "B2"], ["B", "B'", "B2"]]
     
+    let m = [1, 2, 3, 4, 5, 6]
+    var stack = []
+    var int_stack = []
+    var iterator = 0
+    
+    function loop(){
+        if(stack.length >= 8){
+            return 0
+        }
+        for(let i = 0; i < 6; i++){
+            if(i == int_stack[int_stack.length-1]){continue}
+            int_stack.push(i)
+            for(let j = 0; j < 3; j++){
+                stack.push(moves[i][j])
+                // console.log(stack)
+                iterator++
+                loop()
+                stack.pop()
+            }
+            int_stack.pop()
+        }
+        
+    }
+
+
+    for(let i = 0; i < 3; i++){
+        int_stack.push(i)
+        for(let j = 0; j < 3; j++){
+            stack.push(moves[i][j])
+            loop()
+            stack.pop()
+        }
+        int_stack.pop()
+    }
+    console.log(iterator)
+
+
+    // for(let i = 0; i < 3; i++){
+    //     int_stack.push(i)
+    //     for(let j = 0; j < 3; j++){
+    //         stack.push(moves[i][j])
+    //         for (let k = 0; k < 3; k++){
+    //             if(k == int_stack[int_stack.length-1]){continue}
+    //             int_stack.push(k)
+    //             for (let l = 0; l < 3; l++){
+    //                 stack.push(moves[k][l])
+    //                 console.log(stack)
+    //                 stack.pop()
+    //             }
+    //             int_stack.pop()
+    //         }
+    //         stack.pop()
+    //     }
+    //     int_stack.pop()
+    // }
+    
+    
+    
+    
+    
+    
+    // function loop(stack){
+    //     if(stack.length >= 8){
+    //         return 0;
+    //     }
+    //     for(let i = 0; i < 4; i++){
+    //         if(m[i] == stack[stack.length-1]){continue}
+    //         stack.push(m[i])
+    //         // console.log(stack)
+    //         iterator++
+    //         loop(stack)
+    //         stack.pop()
+    //     }
+    // }
+
+    // for(let i = 0; i < m.length; i++){
+    //     s.push(m[i])
+    //     loop(s)
+    //     s.pop()
+    // }
+    // console.log(iterator)
 }
+    
