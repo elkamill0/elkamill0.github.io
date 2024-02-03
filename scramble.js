@@ -9,6 +9,8 @@ function speed(){
     console.log(stop-start)
 }
 
+
+var scrambled_cube = [];
 function scramble(){
     var scramble = document.getElementById("scramble_notation").value
     scramble = scramble.split(" ")
@@ -72,28 +74,46 @@ function scramble(){
                 break
         }
     });
+    scrambled_cube = JSON.parse(JSON.stringify(cube.cube)); // deep cloning
+
+    console.log(scrambled_cube);
+    console.log(cube.cube);
 }
 
 function combination(){
     let moves = [["R", "R'", "R2"], ["L", "L'", "L2"],
                  ["U", "U'", "U2"], ["D", "D'", "D2"],
-                 ["B", "B'", "B2"], ["B", "B'", "B2"]]
-    
-    let m = [1, 2, 3, 4, 5, 6]
+                 ["F", "F'", "F2"], ["B", "B'", "B2"]]
+
+
+    let moves_number = document.getElementById("moves_number").value
     var stack = []
     var int_stack = []
     var iterator = 0
     
     function loop(){
-        if(stack.length >= 8){
+        if(stack.length >= moves_number){
             return 0
         }
         for(let i = 0; i < 6; i++){
             if(i == int_stack[int_stack.length-1]){continue}
+            if(i == int_stack[int_stack.length-2]){
+
+                if(int_stack[int_stack.length-1] % 2 == 0){
+                    if(int_stack[int_stack.length-1] == i-1){
+                        continue
+                    }
+                }
+                else{
+                    if(int_stack[int_stack.length-1] == i+1){
+                        continue
+                    }
+                }
+            }
             int_stack.push(i)
             for(let j = 0; j < 3; j++){
                 stack.push(moves[i][j])
-                // console.log(stack)
+                // console.log(int_stack, stack)
                 iterator++
                 loop()
                 stack.pop()
@@ -103,17 +123,22 @@ function combination(){
         
     }
 
-
-    for(let i = 0; i < 3; i++){
+    let start = Date.now()
+    for(let i = 0; i < 6; i++){
         int_stack.push(i)
         for(let j = 0; j < 3; j++){
             stack.push(moves[i][j])
+            iterator++
             loop()
             stack.pop()
         }
         int_stack.pop()
     }
     console.log(iterator)
+    let stop = Date.now()
+    document.getElementById("time").textContent = "time: " + (stop - start)
+    document.getElementById("combinations").textContent = "combinations: " + iterator
+
 
 
     // for(let i = 0; i < 3; i++){
@@ -160,5 +185,22 @@ function combination(){
     //     s.pop()
     // }
     // console.log(iterator)
+}
+
+function back_to_scramble() {
+    console.log(scrambled_cube);
+    console.log(cube.cube);
+    cube.cube = scrambled_cube
+    cube.print()
+    // console.log(scrambled_cube === cube.cube)
+    // cube.setCube(scrambled_cube)
+    // console.log(cube.getCube())
+    // cube.cube = cube.scrambled_cube
+    // cube.print()
+    
+    // cube.cube = scrambled_cube
+    // console.log(cube.cube)
+    // cube.print()
+
 }
     

@@ -5,6 +5,13 @@ class Cube{
                      [4, 4, 4, 4, 4, 4, 4, 4, 4],
                      [5, 5, 5, 5, 5, 5, 5, 5, 5]]
     }
+    
+    getCube(){
+        return this.cube
+    }
+    setCube(cube){
+        this.cube = cube
+    }
 
     print(){
         document.getElementById("up").innerHTML =    ""+this.cube[0][0]+this.cube[0][1]+this.cube[0][2]+"<br>"+this.cube[0][3]+this.cube[0][4]+this.cube[0][5]+"<br>"+this.cube[0][6]+this.cube[0][7]+this.cube[0][8]

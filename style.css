@@ -1,12 +1,13 @@
 body{
-    padding: 20px;
-    padding-left: 300px;
+    /* padding: 20px; */
+    /* padding-left: 300px; */
     float:left;
     background-color: black;
     color:white;
 }
 
-.moves, .cube{
+.moves, .cube, .scramble, .cross{
+    margin: 30px;
     display: block;
     float: left;
 }

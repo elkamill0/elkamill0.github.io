@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="scramble.js"></script> 
     <script src="script.js"></script>
     <script src="cube.js"></script>
-    <script src="scramble.js"></script>
+    <script src="test.js"></script>
+    <script src="class_test.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,8 +37,6 @@
         <button type="button" onclick="Bp()">B'</button>
         <button type="button" onclick="B2()">B2</button>
         <p></p>
-        <button type="button" onclick="reset()">reset</button>
-        <button type="button" onclick="combination()">combination</button>
     </div>
     <div class="cube">
         <table>
@@ -59,8 +59,24 @@
     <div class="scramble">
         <input type="text" id="scramble_notation">
         <button type="button" onclick="scramble()">submit</button>
-
+        <p>
+        <button type="button" onclick="reset()">reset</button>
+        <button type="button" onclick="back_to_scramble()">back to scramble</button>
     </div>    
+    
+    <div class="cross">
+        <button type="button" onclick="combination()">combination</button>
+        <button type="button" onclick="test()">test</button>
+        <p>moves: <input type="number" value="6" style="width: 30px" id="moves_number"></p>
+        <p id="time">time: 0</p>
+        <p id="combinations">combinations: 0</p>
+    
+    </div>
+    
+    <div class="testting-classes-scopes">
+        <button type="button" onclick="class_test()">class_test</button>
+    </div>
+    <br>
     
 </body>
 </html>
