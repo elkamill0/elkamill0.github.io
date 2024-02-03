@@ -11,6 +11,9 @@ body{
     display: block;
     float: left;
 }
+.cross{
+    margin:70px
+}
 
 .cube{
     margin-left: 50px;
