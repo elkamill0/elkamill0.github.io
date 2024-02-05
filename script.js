@@ -5,13 +5,6 @@ class Cube{
                      [4, 4, 4, 4, 4, 4, 4, 4, 4],
                      [5, 5, 5, 5, 5, 5, 5, 5, 5]]
     }
-    
-    getCube(){
-        return this.cube
-    }
-    setCube(cube){
-        this.cube = cube
-    }
 
     print(){
         document.getElementById("up").innerHTML =    ""+this.cube[0][0]+this.cube[0][1]+this.cube[0][2]+"<br>"+this.cube[0][3]+this.cube[0][4]+this.cube[0][5]+"<br>"+this.cube[0][6]+this.cube[0][7]+this.cube[0][8]
@@ -23,151 +16,240 @@ class Cube{
 
     }
     R(){
-        for(var i = 2; i < 9; i+=3){
-            var buf = this.cube[0][i]
+        for(let i = 2; i < 9; i+=3){
+            let buf = this.cube[0][i]
             this.cube[0][i] = this.cube[2][i]
             this.cube[2][i] = this.cube[5][i]
             this.cube[5][i] = this.cube[4][8 - i]
             this.cube[4][8 - i] = buf
         }
         this.flip(this.cube[3])
-        this.print()
+        // this.print()
     }
-
+    
     Rp(){
-        for(var i = 2; i < 9; i+=3){
-            var buf = this.cube[2][i]
+        for(let i = 2; i < 9; i+=3){
+            let buf = this.cube[2][i]
             this.cube[2][i] = this.cube[0][i]
             this.cube[0][i] = this.cube[4][8 - i]
             this.cube[4][8 - i] = this.cube[5][i]
             this.cube[5][i] = buf
         }
         this.flipp(this.cube[3])
-        this.print()
+        // this.print()
+    }
+
+    R2(){
+        for(let i = 2; i < 9; i+=3) {
+            let buf = this.cube[0][i]
+            this.cube[0][i] = this.cube[5][i]
+            this.cube[5][i] = buf
+
+            buf = this.cube[2][i]
+            this.cube[2][i] = this.cube[4][8-i]
+            this.cube[4][8-i] = buf
+        }
+        this.flip2(this.cube[3])
+        // this.print()
     }
 
     L(){
-        for(var i = 0; i < 9; i+=3){
-            var buf = this.cube[2][i]
+        for(let i = 0; i < 9; i+=3){
+            let buf = this.cube[2][i]
             this.cube[2][i] = this.cube[0][i]
             this.cube[0][i] = this.cube[4][8 - i]
             this.cube[4][8 - i] = this.cube[5][i]
             this.cube[5][i] = buf
         }
         this.flip(this.cube[1])
-        this.print()
+        // this.print()
     }
 
     Lp(){
-        for(var i = 0; i < 9; i+=3){
-            var buf = this.cube[0][i]
+        for(let i = 0; i < 9; i+=3){
+            let buf = this.cube[0][i]
             this.cube[0][i] = this.cube[2][i]
             this.cube[2][i] = this.cube[5][i]
             this.cube[5][i] = this.cube[4][8 - i]
             this.cube[4][8 - i] = buf
         }
         this.flipp(this.cube[1])
-        this.print()
+        // this.print()
+    }
+
+    L2(){
+        for(let i = 0; i < 9; i+=3) {
+            let buf = this.cube[0][i]
+            this.cube[0][i] = this.cube[5][i]
+            this.cube[5][i] = buf
+
+            buf = this.cube[2][i]
+            this.cube[2][i] = this.cube[4][8-i]
+            this.cube[4][8-i] = buf
+        }
+        this.flip2(this.cube[1])
+        // this.print()
     }
 
     U(){
-        for(var i = 0; i < 3; i++){
-            var buf = this.cube[2][i]
+        for(let i = 0; i < 3; i++){
+            let buf = this.cube[2][i]
             this.cube[2][i] = this.cube[3][i]
             this.cube[3][i] = this.cube[4][i]
             this.cube[4][i] = this.cube[1][i]
             this.cube[1][i] = buf
             }
         this.flip(this.cube[0])
-        this.print()
+        // this.print()
     }
 
     Up(){
-        for(var i = 0; i < 3; i++){
-            var buf = this.cube[2][i]
+        for(let i = 0; i < 3; i++){
+            let buf = this.cube[2][i]
             this.cube[2][i] = this.cube[1][i]
             this.cube[1][i] = this.cube[4][i]
             this.cube[4][i] = this.cube[3][i]
             this.cube[3][i] = buf
             }
         this.flipp(this.cube[0])
-        this.print()
+        // this.print()
     }
 
+    U2(){
+        for(let i = 0; i < 3; i++) {
+            let buf = this.cube[2][i]
+            this.cube[2][i] = this.cube[4][i]
+            this.cube[4][i] = buf
+
+            buf = this.cube[1][i]
+            this.cube[1][i] = this.cube[3][i]
+            this.cube[3][i] = buf
+        }
+        this.flip2(this.cube[0])
+        // this.print()
+    }
+
+
     D(){
-        for(var i = 6; i < 9; i++){
-            var buf = this.cube[2][i]
+        for(let i = 6; i < 9; i++){
+            let buf = this.cube[2][i]
             this.cube[2][i] = this.cube[1][i]
             this.cube[1][i] = this.cube[4][i]
             this.cube[4][i] = this.cube[3][i]
             this.cube[3][i] = buf
             }
         this.flip(this.cube[5])
-        this.print()
+        // this.print()
     }
 
     Dp(){
-        for(var i = 6; i < 9; i++){
-            var buf = this.cube[2][i]
+        for(let i = 6; i < 9; i++){
+            let buf = this.cube[2][i]
             this.cube[2][i] = this.cube[3][i]
             this.cube[3][i] = this.cube[4][i]
             this.cube[4][i] = this.cube[1][i]
             this.cube[1][i] = buf
             }
         this.flipp(this.cube[5])
-        this.print()
+        // this.print()
+    }
+
+    D2(){
+        for(let i = 6; i < 9; i++) {
+            let buf = this.cube[2][i]
+            this.cube[2][i] = this.cube[4][i]
+            this.cube[4][i] = buf
+
+            buf = this.cube[1][i]
+            this.cube[1][i] = this.cube[3][i]
+            this.cube[3][i] = buf
+        }
+        this.flip2(this.cube[5])
+        // this.print()
     }
 
     F(){
-        for (var i = 0; i < 3; i++){
-            var buf = this.cube[0][6 + i]
+        for (let i = 0; i < 3; i++){
+            let buf = this.cube[0][6 + i]
             this.cube[0][6 + i] = this.cube[1][8 - (i * 3)]
             this.cube[1][8 - (i * 3)] = this.cube[5][2 - i]
             this.cube[5][2 - i] = this.cube[3][0 + (i * 3)]
             this.cube[3][0 + (i * 3)] = buf
         }
         this.flip(this.cube[2])
-        this.print()
+        // this.print()
     }
 
     Fp(){
-        for (var i = 0; i < 3; i++){
-            var buf = this.cube[0][6 + i]
+        for (let i = 0; i < 3; i++){
+            let buf = this.cube[0][6 + i]
             this.cube[0][6 + i] = this.cube[3][(i * 3)]
             this.cube[3][i * 3] = this.cube[5][2 - i]
             this.cube[5][2 - i] = this.cube[1][8 - (i * 3)]
             this.cube[1][8 - (i * 3)] = buf
         }
         this.flipp(this.cube[2])
-        this.print()
+        // this.print()
+    }
+
+    F2(){
+        let buf
+        for(let i = 6; i < 9; i++) {
+            buf = this.cube[0][i]
+            this.cube[0][i] = this.cube[5][8-i]
+            this.cube[5][8-i] = buf
+        }
+        for(let i = 2; i < 9; i+=3){
+            buf = this.cube[1][i]
+            this.cube[1][i] = this.cube[3][8-i]
+            this.cube[3][8-i] = buf
+        }
+        this.flip2(this.cube[2])
+        // this.print()
     }
 
     B(){
-        for (var i = 0; i < 3; i++){
-            var buf = this.cube[5][6 + i]
+        for (let i = 0; i < 3; i++){
+            let buf = this.cube[5][6 + i]
             this.cube[5][6 + i] = this.cube[1][i * 3]
             this.cube[1][i * 3] = this.cube[0][2 - i]
             this.cube[0][2 - i] = this.cube[3][8 - (i * 3)]
             this.cube[3][8 - (i * 3)] = buf
         }
         this.flip(this.cube[4])
-        this.print()
+        // this.print()
     }
 
     Bp(){
-        for (var i = 0; i < 3; i++){
-            var buf = this.cube[5][6 + i]
+        for (let i = 0; i < 3; i++){
+            let buf = this.cube[5][6 + i]
             this.cube[5][6 + i] = this.cube[3][8 - (i * 3)]
             this.cube[3][8 - (i * 3)] = this.cube[0][2 - i]
             this.cube[0][2 - i] = this.cube[1][i * 3]
             this.cube[1][i * 3] = buf
         }
         this.flipp(this.cube[4])
-        this.print()
+        // this.print()
+    }
+
+    B2(){
+        let buf
+        for(let i = 0; i < 3; i++) {
+            buf = this.cube[0][i]
+            this.cube[0][i] = this.cube[5][8-i]
+            this.cube[5][8-i] = buf
+        }
+        for(let i = 0; i < 9; i+=3){
+            buf = this.cube[1][i]
+            this.cube[1][i] = this.cube[3][8-i]
+            this.cube[3][8-i] = buf
+        }
+        this.flip2(this.cube[4])
+        // this.print()
     }
 
     flip(name_layer){
-        var buf = name_layer[0]
+        let buf = name_layer[0]
         name_layer[0] = name_layer[6]
         name_layer[6] = name_layer[8]
         name_layer[8] = name_layer[2]
@@ -181,7 +263,7 @@ class Cube{
     }
 
     flipp(name_layer){
-        var buf = name_layer[0]
+        let buf = name_layer[0]
         name_layer[0] = name_layer[2]
         name_layer[2] = name_layer[8]
         name_layer[8] = name_layer[6]
@@ -192,6 +274,21 @@ class Cube{
         name_layer[5] = name_layer[7]
         name_layer[7] = name_layer[3]
         name_layer[3] = buf
+    }
+    flip2(name_layer){
+        let buf = name_layer[0]
+        name_layer[0] = name_layer[8]
+        name_layer[8] = buf
+        buf = name_layer[2]
+        name_layer[2] = name_layer[6]
+        name_layer[6] = buf
+
+        buf = name_layer[1]
+        name_layer[1] = name_layer[7]
+        name_layer[7] = buf
+        buf = name_layer[3]
+        name_layer[3] = name_layer[5]
+        name_layer[5] = buf
     }
 }
 

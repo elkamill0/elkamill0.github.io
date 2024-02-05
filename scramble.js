@@ -1,4 +1,3 @@
-
 function speed(){
     var start = Date.now()
     var sum = 0;
@@ -11,8 +10,8 @@ function speed(){
 
 
 var scrambled_cube = [];
-function scramble(){
-    var scramble = document.getElementById("scramble_notation").value
+function scramble_function(){
+    let scramble = document.getElementById("scramble_notation").value
     scramble = scramble.split(" ")
     scramble.forEach(move => {
         switch(move){
@@ -75,9 +74,6 @@ function scramble(){
         }
     });
     scrambled_cube = JSON.parse(JSON.stringify(cube.cube)); // deep cloning
-
-    console.log(scrambled_cube);
-    console.log(cube.cube);
 }
 
 function combination(){
@@ -91,7 +87,7 @@ function combination(){
     var int_stack = []
     var iterator = 0
     
-    function loop(){
+    function loop(flag){
         if(stack.length >= moves_number){
             return 0
         }
@@ -110,12 +106,19 @@ function combination(){
                     }
                 }
             }
+            
             int_stack.push(i)
             for(let j = 0; j < 3; j++){
                 stack.push(moves[i][j])
+                if(find_cross(stack)){
+                    return true
+                }
+                
                 // console.log(int_stack, stack)
                 iterator++
-                loop()
+                if(loop()){
+                    return true
+                }
                 stack.pop()
             }
             int_stack.pop()
@@ -138,6 +141,7 @@ function combination(){
     let stop = Date.now()
     document.getElementById("time").textContent = "time: " + (stop - start)
     document.getElementById("combinations").textContent = "combinations: " + iterator
+
 
 
 
@@ -188,10 +192,9 @@ function combination(){
 }
 
 function back_to_scramble() {
-    console.log(scrambled_cube);
-    console.log(cube.cube);
-    cube.cube = scrambled_cube
-    cube.print()
+    cube.cube = structuredClone(scrambled_cube)
+    // cube.print()
+    // return scrambled_cube
     // console.log(scrambled_cube === cube.cube)
     // cube.setCube(scrambled_cube)
     // console.log(cube.getCube())
@@ -201,6 +204,6 @@ function back_to_scramble() {
     // cube.cube = scrambled_cube
     // console.log(cube.cube)
     // cube.print()
-
 }
+
     
