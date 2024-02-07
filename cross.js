@@ -1,12 +1,10 @@
-function find_cross(scr){
-    solve_cross(scr)
+function find_cross(){
     if (cube.cube[0][1] == 0 && cube.cube[0][3] == 0 && cube.cube[0][5] == 0 && cube.cube[0][7] == 0 &&
         cube.cube[1][1] == 1 && cube.cube[2][1] == 2 && cube.cube[3][1] == 3 && cube.cube[3][1] == 3){
-            console.log(scr)
-            // return true
+            return true
         }
-    back_to_scramble()
-    // return false
+    // back_to_scramble()
+    return false
 }
 
 

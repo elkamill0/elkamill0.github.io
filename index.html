@@ -9,6 +9,7 @@
     <script src="cube.js"></script>
     <script src="test.js"></script>
     <script src="cross.js"></script>
+    <script src="disable_move.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -60,12 +61,15 @@
     </div>    
     
     <div class="cross">
-        <button type="button" onclick="combination()">combination</button>
+        <button type="button" onclick="combination_test()">combination</button>
         <button type="button" onclick="test()">test</button>
         <p>moves: <input type="number" value="6" style="width: 30px" id="moves_number"></p>
         <p id="time">time: 0</p>
         <p id="combinations">combinations: 0</p>
-    
+    </div>
+    <div class="cross-div">
+        <h4>Cross list:</h4>
+        <p id="cross-list" class="cross-list">XD</p>
     </div>
     
 </body>

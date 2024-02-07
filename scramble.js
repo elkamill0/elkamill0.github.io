@@ -78,9 +78,9 @@ function scramble_function(){
 }
 
 function combination(){
-    let moves = [["R", "R'", "R2"], ["L", "L'", "L2"],
-                 ["U", "U'", "U2"], ["D", "D'", "D2"],
-                 ["F", "F'", "F2"], ["B", "B'", "B2"]]
+    let moves = [["R", "R2", "R'"], ["L", "L2", "L'"],
+                 ["U", "U2", "U'"], ["D", "D2", "D'"],
+                 ["F", "F2", "F'"], ["B", "B2", "B'"]]
 
 
     let moves_number = document.getElementById("moves_number").value
@@ -139,9 +139,6 @@ function combination(){
     let stop = Date.now()
     document.getElementById("time").textContent = "time: " + (stop - start)
     document.getElementById("combinations").textContent = "combinations: " + iterator
-
-
-
 
     // for(let i = 0; i < 3; i++){
     //     int_stack.push(i)
