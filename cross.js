@@ -3,68 +3,70 @@ function find_cross(scr){
     if (cube.cube[0][1] == 0 && cube.cube[0][3] == 0 && cube.cube[0][5] == 0 && cube.cube[0][7] == 0 &&
         cube.cube[1][1] == 1 && cube.cube[2][1] == 2 && cube.cube[3][1] == 3 && cube.cube[3][1] == 3){
             console.log(scr)
-            return true
+            // return true
         }
-    back_to_scramble(scr)
-    return false
+    back_to_scramble()
+    // return false
 }
 
+
 function solve_cross(scr){
+    // cube.setVerbose(false)
     scr.forEach(move => {
         switch(move){
             case "R":
-                R()
+                cube.R()
                 break
             case "R'":
-                Rp()
+                cube.Rp()
                 break
             case "R2":
-                R2()
+                cube.R2()
                 break
             case "L":
-                L()
+                cube.L()
                 break
             case "L'":
-                Lp()
+                cube.Lp()
                 break
             case "L2":
-                L2()
+                cube.L2()
                 break
             case "U":
-                U()
+                cube.U()
                 break
             case "U'":
-                Up()
+                cube.Up()
                 break
             case "U2":
-                U2()
+                cube.U2()
                 break
             case "D":
-                D()
+                cube.D()
                 break
             case "D'":
-                Dp()
+                cube.Dp()
                 break
             case "D2":
-                D2()
+                cube.D2()
                 break
             case "F":
-                F()
+                cube.F()
                 break
             case "F'":
-                Fp()
+                cube.Fp()
                 break
             case "F2":
-                F2()
+                cube.F2()
                 break
             case "B":
-                B()
+                cube.B()
                 break
             case "B'":
-                Bp()
+                cube.Bp()
                 break
             case "B2":
-                B2()
+                cube.B2()
                 break
             default:
                 break

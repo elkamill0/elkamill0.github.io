@@ -16,62 +16,63 @@ function scramble_function(){
     scramble.forEach(move => {
         switch(move){
             case "R":
-                R()
+                cube.R()
                 break
             case "R'":
-                Rp()
+                cube.Rp()
                 break
             case "R2":
-                R2()
+                cube.R2()
                 break
             case "L":
-                L()
+                cube.L()
                 break
             case "L'":
-                Lp()
+                cube.Lp()
                 break
             case "L2":
-                L2()
+                cube.L2()
                 break
             case "U":
-                U()
+                cube.U()
                 break
             case "U'":
-                Up()
+                cube.Up()
                 break
             case "U2":
-                U2()
+                cube.U2()
                 break
             case "D":
-                D()
+                cube.D()
                 break
             case "D'":
-                Dp()
+                cube.Dp()
                 break
             case "D2":
-                D2()
+                cube.D2()
                 break
             case "F":
-                F()
+                cube.F()
                 break
             case "F'":
-                Fp()
+                cube.Fp()
                 break
             case "F2":
-                F2()
+                cube.F2()
                 break
             case "B":
-                B()
+                cube.B()
                 break
             case "B'":
-                Bp()
+                cube.Bp()
                 break
             case "B2":
-                B2()
+                cube.B2()
                 break
             default:
                 break
         }
+        cube.print()
     });
     scrambled_cube = JSON.parse(JSON.stringify(cube.cube)); // deep cloning
 }
@@ -87,7 +88,7 @@ function combination(){
     var int_stack = []
     var iterator = 0
     
-    function loop(flag){
+    function loop(){ //flag
         if(stack.length >= moves_number){
             return 0
         }
@@ -110,15 +111,12 @@ function combination(){
             int_stack.push(i)
             for(let j = 0; j < 3; j++){
                 stack.push(moves[i][j])
-                if(find_cross(stack)){
-                    return true
-                }
-                
-                // console.log(int_stack, stack)
+                // if(find_cross(stack)){
+                //     break
+                // }
+                console.log(stack)
                 iterator++
-                if(loop()){
-                    return true
-                }
+                loop()
                 stack.pop()
             }
             int_stack.pop()
@@ -194,16 +192,11 @@ function combination(){
 function back_to_scramble() {
     cube.cube = structuredClone(scrambled_cube)
     // cube.print()
-    // return scrambled_cube
-    // console.log(scrambled_cube === cube.cube)
-    // cube.setCube(scrambled_cube)
-    // console.log(cube.getCube())
-    // cube.cube = cube.scrambled_cube
-    // cube.print()
-    
-    // cube.cube = scrambled_cube
-    // console.log(cube.cube)
-    // cube.print()
+}
+
+function reset(){
+    cube = new WhiteCrossCube()
+    cube.print()
 }
 
     
