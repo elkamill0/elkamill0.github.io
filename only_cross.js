@@ -240,4 +240,4 @@ class WhiteCrossCube{
     }
 }
 
-var cube = new WhiteCrossCube();
+// var cube = new WhiteCrossCube();

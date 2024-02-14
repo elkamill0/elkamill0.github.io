@@ -1,4 +1,4 @@
-class Cube{
+class Cube{ // 0:white; 1:orange 2:green 3:red 4:blue 5:yellow
     constructor(){
         this.cube = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
                      [1, 1, 1, 1, 1, 1, 1, 1, 1], [2, 2, 2, 2, 2, 2, 2, 2, 2], [3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -259,6 +259,130 @@ class Cube{
         this.checkVerbose()
     }
 
+    x(){
+        let buf = this.cube[0]
+        this.cube[0] = this.cube[2]
+        this.cube[2] = this.cube[5]
+        this.cube[5] = this.cube[4]
+        this.flip2(this.cube[5])
+        this.cube[4] = buf
+        this.flip2(this.cube[4])
+
+        this.flip(this.cube[3])
+        this.flipp(this.cube[1])
+    }
+
+    xp(){
+        let buf = this.cube[0]
+        this.cube[0] = this.cube[4]
+        this.flip2(this.cube[0])
+        this.cube[4] = this.cube[5]
+        this.flip2(this.cube[4])
+        this.cube[5] = this.cube[2]
+        this.cube[2] = buf
+
+        this.flipp(this.cube[3])
+        this.flip(this.cube[1])
+    }
+
+    x2(){
+        let buf = this.cube[0]
+        this.cube[0] = this.cube[5]
+        this.cube[5] = buf
+
+        buf = this.cube[2]
+        this.cube[2] = this.cube[4]
+        this.flip2(this.cube[2])
+        this.cube[4] = buf
+        this.flip2(this.cube[4])
+
+        this.flip2(this.cube[3])
+        this.flip2(this.cube[1])
+    }
+
+    y(){
+        let buf = this.cube[2]
+        this.cube[2] = this.cube[3]
+        this.cube[3] = this.cube[4]
+        this.cube[4] = this.cube[1]
+        this.cube[1] = buf
+
+        this.flip(this.cube[0])
+        this.flipp(this.cube[5])
+    }
+
+    yp(){
+        let buf = this.cube[2]
+        this.cube[2] = this.cube[1]
+        this.cube[1] = this.cube[4]
+        this.cube[4] = this.cube[3]
+        this.cube[3] = buf
+
+        this.flipp(this.cube[0])
+        this.flip(this.cube[5])
+    }
+
+    y2(){
+        let buf = this.cube[2]
+        this.cube[2] = this.cube[4]
+        this.cube[4] = buf
+
+        buf = this.cube[1]
+        this.cube[1] = this.cube[3]
+        this.cube[3] = buf
+
+        this.flip2(this.cube[0])
+        this.flip2(this.cube[5])
+    }
+    
+    z(){
+        let buf = this.cube[0]
+        this.cube[0] = this.cube[1]
+        this.flip(this.cube[0])
+        this.cube[1] = this.cube[5]
+        this.flip(this.cube[1])
+        this.cube[5] = this.cube[3]
+        this.flip(this.cube[5])
+        this.cube[3] = buf
+        this.flip(this.cube[3])
+
+        this.flip(this.cube[2])
+        this.flipp(this.cube[4])
+    }
+
+    zp(){
+        let buf = this.cube[0]
+        this.cube[0] = this.cube[3]
+        this.flipp(this.cube[0])
+        this.cube[3] = this.cube[5]
+        this.flipp(this.cube[3])
+        this.cube[5] = this.cube[1]
+        this.flipp(this.cube[5])
+        this.cube[1] = buf
+        this.flipp(this.cube[1])
+
+        this.flipp(this.cube[2])
+        this.flip(this.cube[4])
+    }
+
+    z2(){
+        let buf = this.cube[0]
+        this.cube[0] = this.cube[5]
+        this.flip2(this.cube[0])
+        this.cube[5] = buf
+        this.flip2(this.cube[5])
+
+        buf = this.cube[1]
+        this.cube[1] = this.cube[3]
+        this.flip2(this.cube[1])
+        this.cube[3] = buf
+        this.flip2(this.cube[3])
+        
+        this.flip2(this.cube[2])
+        this.flip2(this.cube[4])
+    }
+
+
     flip(name_layer){
         let buf = name_layer[0]
         name_layer[0] = name_layer[6]
@@ -303,4 +427,76 @@ class Cube{
     }
 }
 
-// var cube = new Cube();
+var cube = new Cube();
+
+function reset(){
+    cube = new Cube()
+    cube.print()
+}
+
+function moving(scramble){
+    for (let move of scramble){
+        switch(move){
+            case "R":
+                cube.R()
+                break
+            case "R'":
+                cube.Rp()
+                break
+            case "R2":
+                cube.R2()
+                break
+            case "L":
+                cube.L()
+                break
+            case "L'":
+                cube.Lp()
+                break
+            case "L2":
+                cube.L2()
+                break
+            case "U":
+                cube.U()
+                break
+            case "U'":
+                cube.Up()
+                break
+            case "U2":
+                cube.U2()
+                break
+            case "D":
+                cube.D()
+                break
+            case "D'":
+                cube.Dp()
+                break
+            case "D2":
+                cube.D2()
+                break
+            case "F":
+                cube.F()
+                break
+            case "F'":
+                cube.Fp()
+                break
+            case "F2":
+                cube.F2()
+                break
+            case "B":
+                cube.B()
+                break
+            case "B'":
+                cube.Bp()
+                break
+            case "B2":
+                cube.B2()
+                break
+            default:
+                break
+        }
+    }
+}
+
+var moves = [["R", "R2", "R'"], ["L", "L2", "L'"],
+                    ["U", "U2", "U'"], ["D", "D2", "D'"],
+                    ["F", "F2", "F'"], ["B", "B2", "B'"]];

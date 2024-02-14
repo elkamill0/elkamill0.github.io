@@ -9,10 +9,11 @@
     <script src="cube.js"></script>
     <script src="test.js"></script>
     <script src="cross.js"></script>
-    <script src="disable_move.js"></script>
+    <script src="generate_scramble.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="scramble-handler"><a id="scramble-handler-p"></a><button type="button" onclick="set_scramble()">new_scramble</button></div>
     <div class="moves">
         <button type="button" onclick="cube.R()">R</button>
         <button type="button" onclick="cube.Rp()">R'</button>
@@ -57,19 +58,27 @@
         <button type="button" onclick="scramble_function()">submit</button>
         <p>
         <button type="button" onclick="reset()">reset</button>
-        <button type="button" onclick="back_to_scramble()">back to scramble</button>
     </div>    
     
     <div class="cross">
         <button type="button" onclick="combination_test()">combination</button>
-        <button type="button" onclick="test()">test</button>
+        <label>Cross:</label>
+            <select id="cross-color">
+                <option value="blue">blue</option>
+                <option vlaue="green">green</option>
+                <option vlaue="orange">orange</option>
+                <option vlaue="red">red</option>
+                <option vlaue="white" selected>white</option>
+                <option vlaue="yellow">yellow</option>
+
+            </select>
         <p>moves: <input type="number" value="6" style="width: 30px" id="moves_number"></p>
         <p id="time">time: 0</p>
         <p id="combinations">combinations: 0</p>
     </div>
     <div class="cross-div">
         <h4>Cross list:</h4>
-        <p id="cross-list" class="cross-list">XD</p>
+        <p id="cross-list" class="cross-list"></p>
     </div>
     
 </body>

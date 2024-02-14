@@ -1,9 +1,15 @@
 body{
-    /* padding: 20px; */
-    /* padding-left: 300px; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
     float:left;
     background-color: black;
     color:white;
+}
+
+.scramble-handler{
+    width:100%;
+    display:block;
 }
 
 .moves, .cube, .scramble, .cross{
